@@ -11,9 +11,11 @@ class TrueCount:
     def number_of_decks(self):
         return self._number_of_decks
 
-    def card_pulled(self):
+    def card_pulled(self, card_count):
         number_of_cards = self._number_of_decks * 52 - 1
         self._number_of_decks = number_of_cards / 52
+
+        self._running_count_total += card_count
 
 
 class RunningCount:

@@ -29,3 +29,20 @@ def test_adjusts_deck_number_when_two_cards_pulled():
     true_count.card_pulled()
 
     assert approx(true_count.number_of_decks, 0.001) == 5.96
+
+
+def test_adjusts_running_count_when_card_pulled():
+    true_count = TrueCount(0, 6)
+
+    true_count.card_pulled(-1)
+
+    assert true_count._running_count_total == -1
+
+
+def test_adjusts_running_count_when_two_cards_pulled():
+    true_count = TrueCount(0, 6)
+
+    true_count.card_pulled(1)
+    true_count.card_pulled(1)
+
+    assert true_count._running_count_total == 2
