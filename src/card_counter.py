@@ -7,6 +7,14 @@ class TrueCount:
     def total(self):
         return self._running_count_total / self._number_of_decks
 
+    @property
+    def number_of_decks(self):
+        return self._number_of_decks
+
+    def card_pulled(self):
+        number_of_cards = self._number_of_decks * 52 - 1
+        self._number_of_decks = number_of_cards / 52
+
 
 class RunningCount:
     def __init__(self):
