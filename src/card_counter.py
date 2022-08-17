@@ -1,21 +1,19 @@
 class TrueCount:
-    def __init__(self, running_count_total, number_of_decks):
-        self._running_count_total = running_count_total
+    def __init__(self, running_count, number_of_decks):
+        self._running_count = running_count
         self._number_of_decks = number_of_decks
 
     @property
     def total(self):
-        return self._running_count_total / self._number_of_decks
+        return self._running_count.total / self._number_of_decks
 
     @property
     def number_of_decks(self):
         return self._number_of_decks
 
-    def card_pulled(self, card_count):
+    def card_pulled(self):
         number_of_cards = self._number_of_decks * 52 - 1
         self._number_of_decks = number_of_cards / 52
-
-        self._running_count_total += card_count
 
 
 class RunningCount:

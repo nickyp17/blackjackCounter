@@ -3,19 +3,24 @@ from pytest import approx
 
 
 def test_gets_true_count_with_running_count_of_zero():
-    true_count = TrueCount(0, 6)
+    running_count = RunningCount()
+    true_count = TrueCount(running_count, 6)
 
     assert true_count.total == 0
 
 
 def test_gets_true_count_with_running_count_not_zero():
-    true_count = TrueCount(8, 6)
+    running_count = RunningCount()
+    for i in range(8):
+        running_count.add_low_card()
+    true_count = TrueCount(running_count, 6)
 
     assert approx(true_count.total, 0.1) == 1.3
 
 
 def test_adjusts_deck_number_when_card_pulled():
-    true_count = TrueCount(0, 6)
+    running_count = RunningCount()
+    true_count = TrueCount(running_count, 6)
 
     true_count.card_pulled()
 
@@ -23,26 +28,10 @@ def test_adjusts_deck_number_when_card_pulled():
 
 
 def test_adjusts_deck_number_when_two_cards_pulled():
-    true_count = TrueCount(0, 6)
+    running_count = RunningCount()
+    true_count = TrueCount(running_count, 6)
 
     true_count.card_pulled()
     true_count.card_pulled()
 
     assert approx(true_count.number_of_decks, 0.001) == 5.96
-
-
-def test_adjusts_running_count_when_card_pulled():
-    true_count = TrueCount(0, 6)
-
-    true_count.card_pulled(-1)
-
-    assert true_count._running_count_total == -1
-
-
-def test_adjusts_running_count_when_two_cards_pulled():
-    true_count = TrueCount(0, 6)
-
-    true_count.card_pulled(1)
-    true_count.card_pulled(1)
-
-    assert true_count._running_count_total == 2
