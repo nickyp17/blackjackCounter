@@ -1,3 +1,3 @@
 # Blackjack Card Counter
 
-As online casinos such as stake.com continue to rise many fall trap to the illusion the house puts on making it seem easy to make your money grow. However, the game with the highest odds for beating the house is blackjack, which also doubles as a fun card game. This project is a chance to use tkinter and some simple math to create an application that can _count_ cards, and give me a chance to practice TDD and hexagonal architecture. 
+As online casinos such as stake.com continue to rise many fall trap to the illusion the house puts on making it seem easy to make your money grow. However, the game with the highest odds for beating the house is blackjack, which also doubles as a fun card game. This project is a chance to use tkinter and some simple math to create an application that can "_count_" cards, and give me a chance to practice TDD. 
