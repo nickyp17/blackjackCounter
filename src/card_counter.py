@@ -1,6 +1,11 @@
 class TrueCount:
-    def __init__(self):
-        pass
+    def __init__(self, running_count, number_of_decks):
+        self._running_count = running_count
+        self._number_of_decks = number_of_decks
+
+    @property
+    def total(self):
+        return self._running_count / self._number_of_decks
 
 
 class RunningCount:
