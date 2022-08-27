@@ -17,8 +17,8 @@ class TrueCount:
 
 
 class RunningCount:
-    def __init__(self):
-        self._total = 0
+    def __init__(self, total=0):
+        self._total = total
 
     @property
     def total(self):
