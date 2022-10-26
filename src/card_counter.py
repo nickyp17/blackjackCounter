@@ -12,7 +12,7 @@ class RunningCount:
 
     def add_high_card(self):
         """Adds -1 to the count for any card with face value from 10-Ace"""
-        self._total = -1
+        self._total += -1
 
 
 class TrueCount:
@@ -30,7 +30,7 @@ class TrueCount:
 
     def _update_number_of_decks(self):
         number_of_cards = self._number_of_decks * 52 - 1
-        self._number_of_decks = number_of_cards / 52
+        self._number_of_decks = round(number_of_cards / 52)
 
     def low_card_pulled(self):
         self._running_count.add_low_card()
